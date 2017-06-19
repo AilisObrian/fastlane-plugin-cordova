@@ -73,7 +73,7 @@ module Fastlane
         android_args = self.get_android_args(params)
         ios_args = self.get_ios_args(params)
 
-        sh "#{params[:cordova]} build #{params[:platform]} --#{prod}#{device} #{ios_args} -- #{android_args} #{params[:cordova_args]}"
+        sh "#{params[:cordova]} build #{params[:platform]} #{params[:cordova_args]} --#{prod}#{device} #{ios_args} -- #{android_args}"
       end
 
       def self.set_build_paths(is_release)
