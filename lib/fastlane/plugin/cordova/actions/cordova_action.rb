@@ -107,14 +107,14 @@ module Fastlane
           FastlaneCore::ConfigItem.new(
             key: :cordova,
             env_name: "CORDOVA",
-            description: "Cordova Command.",
+            description: "Cordova Command",
             is_string: true,
             default_value: 'cordova'
           ),
           FastlaneCore::ConfigItem.new(
             key: :cordova_args,
             env_name: "CORDOVA_ARGS",
-            description: "Arguments to build with.",
+            description: "Arguments to build with",
             is_string: true,
             default_value: ''
           ),
