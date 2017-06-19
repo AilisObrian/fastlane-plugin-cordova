@@ -73,7 +73,7 @@ module Fastlane
         android_args = self.get_android_args(params)
         ios_args = self.get_ios_args(params)
 
-        sh "cordova build #{params[:platform]} --#{prod}#{device} #{ios_args} -- #{android_args}"
+        sh "#{params[:cordova]} build #{params[:platform]} --#{prod}#{device} #{ios_args} -- #{android_args} #{params[:cordova_args]}"
       end
 
       def self.set_build_paths(is_release)
@@ -104,6 +104,20 @@ module Fastlane
 
       def self.available_options
         [
+          FastlaneCore::ConfigItem.new(
+            key: :cordova,
+            env_name: "CORDOVA",
+            description: "Cordova Command.",
+            is_string: true,
+            default_value: 'cordova'
+          ),
+          FastlaneCore::ConfigItem.new(
+            key: :cordova_args,
+            env_name: "CORDOVA_ARGS",
+            description: "Arguments to build with.",
+            is_string: true,
+            default_value: ''
+          ),
           FastlaneCore::ConfigItem.new(
             key: :platform,
             env_name: "CORDOVA_PLATFORM",
